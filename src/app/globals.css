@@ -2,9 +2,12 @@
 
 :root {
   --charis-green: #001D00;
+  --charis-green-2: #030a03;
   --charis-white: #E0E0E0;
+  --charis-light: #f9fce3;
   --charis-yellow: #E0EB8D;
-  --charis-black: #1f1f1f;
+  --charis-black: #000000;
+  --charis-gray: #1f1f1f;
   --charis-accent-green: #65AD5C;
 }
 
@@ -17,8 +20,46 @@
 
 body {
   background: var(--charis-green);
-  color: var(--charis-white);
+  color: var(--charis-light);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/*"Charis"*/
+.charis-title-style {
+  font-family: var(--font-serif);
+  line-height:1;
+}
+
+/*"WEB DESIGN"*/
+.charis-secondaryline-style {
+  font-family: var(--font-sans);
+  font-weight: 50;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  white-space: nowrap;
+}
+
+/*"Built with grace."*/
+.charis-tagline-style {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 50;
+  white-space: nowrap;
+}
+
+.link-style {
+  color: var(--charis-white);
+  font-family: var(--font-sans);
+}
+
+.link-style:hover,
+.link-style:active {
+  color: var(--charis-yellow);
+}
+
+h5 {
+  font-family: var(--font-sans);
+  font-weight: 600;
 }
 
 /* for reference: 

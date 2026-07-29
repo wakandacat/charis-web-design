@@ -35,16 +35,21 @@ export default function Navbar() {
       <header>
         <nav className="bg-background px-6 py-4 mx-auto w-full max-w-7xl relative">
           <div className="flex flex-row items-center justify-between w-full">
-            <Image
-              src="/icon.png"
-              alt="Charis Web Design Icon"
-              className="pr-2"
-              width={50}
-              height={50}
-              priority
-            />
-            <p className="font-serif text-2xl">Charis Web Design</p>
-
+            <Link
+              className="flex flew-row items-center"
+              href="/"
+              onClick={() => setMenuOpen(false)}
+            >
+              <Image
+                src="/icon.png"
+                alt="Charis Web Design Icon"
+                className="pr-2"
+                width={50}
+                height={50}
+                priority
+              />
+              <p className="font-serif text-2xl">Charis Web Design</p>
+            </Link>
             <a onClick={() => setMenuOpen(!menuOpen)}>
               {menuOpen ? (
                 <X size={30} strokeWidth={1.5} />
@@ -59,7 +64,9 @@ export default function Navbar() {
               <ul className="bg-background flex flex-col items-center font-sans justify-between gap-4 border border-(--charis-yellow) p-4 text-lg">
                 <Link
                   className={`hover:text-(--charis-yellow) ${
-                    pathname === "/" ? "text-(--charis-yellow)" : "text-white"
+                    pathname === "/"
+                      ? "text-(--charis-yellow)"
+                      : "text-(--charis-white)"
                   }`}
                   href="/"
                   onClick={() => setMenuOpen(false)}
@@ -70,7 +77,7 @@ export default function Navbar() {
                   className={`hover:text-(--charis-yellow) ${
                     pathname === "/projects"
                       ? "text-(--charis-yellow)"
-                      : "text-white"
+                      : "text-(--charis-white)"
                   }`}
                   href="/projects"
                   onClick={() => setMenuOpen(false)}
@@ -81,7 +88,7 @@ export default function Navbar() {
                   className={`hover:text-(--charis-yellow) ${
                     pathname === "/services"
                       ? "text-(--charis-yellow)"
-                      : "text-white"
+                      : "text-(--charis-white)"
                   }`}
                   href="/services"
                   onClick={() => setMenuOpen(false)}
@@ -92,7 +99,7 @@ export default function Navbar() {
                   className={`hover:text-(--charis-yellow) ${
                     pathname === "/contact"
                       ? "text-(--charis-yellow)"
-                      : "text-white"
+                      : "text-(--charis-white)"
                   }`}
                   href="/contact"
                   onClick={() => setMenuOpen(false)}
@@ -110,22 +117,26 @@ export default function Navbar() {
       <header>
         <nav className="bg-background px-6 py-4 mx-auto w-full max-w-7xl">
           <span className="flex flex-row items-center w-full">
-            <div className="flex flex-row items-center">
-              <Image
-                src="/icon.png"
-                alt="Charis Web Design Icon"
-                className="pr-2"
-                width={50}
-                height={50}
-                priority
-              />
-              <p className="font-serif text-3xl">Charis Web Design</p>
-            </div>
+            <Link href="/">
+              <div className="flex flex-row items-center">
+                <Image
+                  src="/icon.png"
+                  alt="Charis Web Design Icon"
+                  className="pr-2"
+                  width={50}
+                  height={50}
+                  priority
+                />
+                <p className="font-serif text-3xl">Charis Web Design</p>
+              </div>
+            </Link>
 
             <ul className="flex flex-row gap-4 text-lg font-sans justify-center items-baseline ml-auto">
               <Link
                 className={`hover:text-(--charis-yellow) ${
-                  pathname === "/" ? "text-(--charis-yellow)" : "text-white"
+                  pathname === "/"
+                    ? "text-(--charis-yellow)"
+                    : "text-(--charis-white)"
                 }`}
                 href="/"
               >
@@ -135,7 +146,7 @@ export default function Navbar() {
                 className={`hover:text-(--charis-yellow) ${
                   pathname === "/projects"
                     ? "text-(--charis-yellow)"
-                    : "text-white"
+                    : "text-(--charis-white)"
                 }`}
                 href="/projects"
               >
@@ -145,7 +156,7 @@ export default function Navbar() {
                 className={`hover:text-(--charis-yellow) ${
                   pathname === "/services"
                     ? "text-(--charis-yellow)"
-                    : "text-white"
+                    : "text-(--charis-white)"
                 }`}
                 href="/services"
               >
@@ -155,7 +166,7 @@ export default function Navbar() {
                 className={`hover:text-(--charis-yellow) ${
                   pathname === "/contact"
                     ? "text-(--charis-yellow)"
-                    : "text-white"
+                    : "text-(--charis-white)"
                 }`}
                 href="/contact"
               >
