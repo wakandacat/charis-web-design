@@ -1,4 +1,12 @@
 // the Contact page
+
+import PageContainer from "@/components/page-container";
+
 export default function ContactPage() {
-  return <div>Contact page coming soon</div>;
+  return (
+    <PageContainer>
+      <h1>Contact</h1>
+      {/* rest of content */}
+    </PageContainer>
+  );
 }

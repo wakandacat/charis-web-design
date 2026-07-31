@@ -37,7 +37,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <ScreenSizeProvider>
           <Navbar />
-          {children}
+          <main className="flex-grow bg-(--charis-light)">{children}</main>
           <Footer />
         </ScreenSizeProvider>
       </body>

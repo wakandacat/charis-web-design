@@ -106,6 +106,17 @@ export default function Navbar() {
                 >
                   Contact
                 </Link>
+                <Link
+                  className={`hover:text-(--charis-yellow) ${
+                    pathname === "/contact"
+                      ? "text-(--charis-yellow)"
+                      : "text-(--charis-white)"
+                  }`}
+                  href="/about"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  About
+                </Link>
               </ul>
             </div>
           )}
@@ -171,6 +182,16 @@ export default function Navbar() {
                 href="/contact"
               >
                 Contact
+              </Link>
+              <Link
+                className={`hover:text-(--charis-yellow) ${
+                  pathname === "/contact"
+                    ? "text-(--charis-yellow)"
+                    : "text-(--charis-white)"
+                }`}
+                href="/about"
+              >
+                About
               </Link>
             </ul>
           </span>

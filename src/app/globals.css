@@ -24,6 +24,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+main {
+  color: var(--charis-gray);
+}
+
 /*"Charis"*/
 .charis-title-style {
   font-family: var(--font-serif);
@@ -61,8 +65,3 @@ h5 {
   font-family: var(--font-sans);
   font-weight: 600;
 }
-
-/* for reference: 
-all sections mx-auto
-px-6
-at least py-4*/
