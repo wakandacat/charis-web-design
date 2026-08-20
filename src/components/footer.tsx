@@ -14,11 +14,11 @@ export default function Footer() {
   return (
     <footer className="bg-background px-6 py-6 mx-auto w-full max-w-7xl">
       <span
-        className={`flex items-center justify-between gap-6 ${
+        className={`flex justify-between gap-6 ${
           isSmallScreen ? "flex-col" : "flex-row"
         }`}
       >
-        <div className="flex flex-row items-center mr-8">
+        <div className="flex flex-row items-center mr-auto">
           <Image
             src="/icon.png"
             alt="Charis Web Design Icon"
@@ -41,7 +41,7 @@ export default function Footer() {
         >
           <div>
             <h5 className="text-l">Learn More</h5>
-            <ul className="flex flex-col gap-3 mt-2">
+            <ul className="flex flex-col gap-3 text-sm mt-2">
               <Link className="link-style" href="/projects">
                 Projects
               </Link>
@@ -55,9 +55,12 @@ export default function Footer() {
           </div>
           <div>
             <h5 className="text-l">Other Info</h5>
-            <ul className="flex flex-col gap-3 mt-2">
+            <ul className="flex flex-col gap-3 text-sm mt-2">
               <Link className="link-style" href="/">
-                Terms & Conditions
+                Terms of Service
+              </Link>
+              <Link className="link-style" href="/">
+                Privacy Policy
               </Link>
             </ul>
           </div>
@@ -65,7 +68,7 @@ export default function Footer() {
             <h5 className="text-l">Connect With Us</h5>
             <div className="flex flex-row mt-2 gap-3">
               <a
-                className="w-7.5 shrink-0 fill-(--charis-white) hover:fill-(--charis-yellow) mr-2"
+                className="w-6 shrink-0 fill-(--charis-white) hover:fill-(--charis-yellow) mr-2"
                 href="mailto:ellena.tzavelas@gmail.com"
                 target="_blank"
                 rel="noreferrer noopener"
@@ -80,7 +83,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                className="w-7.5 shrink-0 fill-(--charis-white) hover:fill-(--charis-yellow) mr-2"
+                className="w-6 shrink-0 fill-(--charis-white) hover:fill-(--charis-yellow) mr-2"
                 href="https://www.instagram.com/chariswebdesign/"
                 target="_blank"
                 rel="noreferrer noopener"
@@ -98,8 +101,8 @@ export default function Footer() {
           </div>
         </div>
       </span>
-
-      <span className="flex flex-row justify-center text-center mt-10">
+      <hr className="border-t border-(--charis-light-gray) mt-3" />
+      <span className="flex flex-row justify-center text-center mt-5 text-sm text-(--charis-light)">
         © {currYear} Charis Web Design. All rights reserved.
       </span>
     </footer>
