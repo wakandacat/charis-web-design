@@ -33,7 +33,7 @@ export default function Navbar() {
   if (isSmallScreen) {
     return (
       <header>
-        <nav className="bg-background px-6 py-4 mx-auto w-full max-w-7xl relative">
+        <nav className="bg-background px-6 h-(--navbar-height) py-4 mx-auto w-full max-w-7xl relative">
           <div className="flex flex-row items-center justify-between w-full">
             <Link
               className="flex flew-row items-center"
@@ -101,6 +101,17 @@ export default function Navbar() {
                       ? "text-(--charis-yellow)"
                       : "text-(--charis-white)"
                   }`}
+                  href="/about"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  About
+                </Link>
+                <Link
+                  className={`hover:text-(--charis-yellow) ${
+                    pathname === "/contact"
+                      ? "text-(--charis-yellow)"
+                      : "text-(--charis-white)"
+                  }`}
                   href="/contact"
                   onClick={() => setMenuOpen(false)}
                 >
@@ -115,7 +126,7 @@ export default function Navbar() {
   } else {
     return (
       <header>
-        <nav className="bg-background px-6 py-4 mx-auto w-full max-w-7xl">
+        <nav className="bg-background px-6 h-(--navbar-height) py-4 mx-auto w-full max-w-7xl">
           <span className="flex flex-row items-center w-full">
             <Link href="/">
               <div className="flex flex-row items-center">
@@ -161,6 +172,16 @@ export default function Navbar() {
                 href="/services"
               >
                 Services
+              </Link>
+              <Link
+                className={`hover:text-(--charis-yellow) ${
+                  pathname === "/contact"
+                    ? "text-(--charis-yellow)"
+                    : "text-(--charis-white)"
+                }`}
+                href="/about"
+              >
+                About
               </Link>
               <Link
                 className={`hover:text-(--charis-yellow) ${

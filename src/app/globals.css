@@ -2,13 +2,18 @@
 
 :root {
   --charis-green: #001D00;
-  --charis-green-2: #030a03;
+  --charis-green-2: #020D02;
   --charis-white: #E0E0E0;
-  --charis-light: #f9fce3;
+  --charis-light: #e7e9d9;
   --charis-yellow: #E0EB8D;
   --charis-black: #000000;
   --charis-gray: #1f1f1f;
+  --charis-light-gray: #b6b6b6;
   --charis-accent-green: #65AD5C;
+
+  /* logo (50px) + nav's py-4 (16px top/bottom) — the navbar sits in flow
+     above main, so full-height sections subtract this to fill the viewport */
+  --navbar-height: 82px;
 }
 
 @theme inline {
@@ -24,6 +29,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+main {
+  color: var(--charis-gray);
+}
+
 /*"Charis"*/
 .charis-title-style {
   font-family: var(--font-serif);
@@ -34,9 +43,7 @@ body {
 .charis-secondaryline-style {
   font-family: var(--font-sans);
   font-weight: 50;
-  text-transform: uppercase;
   letter-spacing: 6px;
-  white-space: nowrap;
 }
 
 /*"Built with grace."*/
@@ -48,7 +55,7 @@ body {
 }
 
 .link-style {
-  color: var(--charis-white);
+  color: var(--charis-light);
   font-family: var(--font-sans);
 }
 
@@ -57,12 +64,21 @@ body {
   color: var(--charis-yellow);
 }
 
+/*call to action buttons*/
+.button-style {
+  background: var(--charis-green);
+  color: var(--charis-light);
+  font-family: var(--font-sans);
+  border-radius: 0.25rem;
+}
+
+.button-style:hover,
+.button-style:active {
+  background: var(--charis-accent-green);
+  color: var(--charis-yellow);
+}
+
 h5 {
   font-family: var(--font-sans);
   font-weight: 600;
 }
-
-/* for reference: 
-all sections mx-auto
-px-6
-at least py-4*/
