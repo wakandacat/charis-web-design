@@ -29,7 +29,9 @@ export default function Footer() {
           />
           <div className="flex flex-col items-center">
             <p className="charis-title-style text-[3.25rem]">Charis</p>
-            <p className="charis-secondaryline-style text-l">Web Design</p>
+            <p className="charis-secondaryline-style uppercase text-l whitespace-nowrap">
+              Web Design
+            </p>
             <p className="charis-tagline-style text-xl">Built with grace.</p>
           </div>
         </div>

@@ -1,5 +1,7 @@
 import Image, { type StaticImageData } from "next/image";
 
+//can nest inside a div with className bg value to chnage background colour
+
 export default function PageBanner({
   background,
   children,
@@ -9,7 +11,7 @@ export default function PageBanner({
   children: React.ReactNode;
 }) {
   return (
-    <section className="relative min-h-[calc(100svh-var(--navbar-height))] bg-(--charis-light-green)">
+    <section className="relative min-h-[calc(100svh-var(--navbar-height))]">
       {background && (
         <Image
           src={background}

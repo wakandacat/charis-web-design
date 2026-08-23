@@ -2,7 +2,7 @@
 
 :root {
   --charis-green: #001D00;
-  --charis-green-2: #030a03;
+  --charis-green-2: #020D02;
   --charis-white: #E0E0E0;
   --charis-light: #e7e9d9;
   --charis-yellow: #E0EB8D;
@@ -43,9 +43,7 @@ main {
 .charis-secondaryline-style {
   font-family: var(--font-sans);
   font-weight: 50;
-  text-transform: uppercase;
   letter-spacing: 6px;
-  white-space: nowrap;
 }
 
 /*"Built with grace."*/
