@@ -1,16 +1,14 @@
 //the About page
 
-import PageBanner from "@/components/page-banner";
-import PageContainer from "@/components/page-container";
 import PageSection from "@/components/page-section";
 import SectionColumns from "@/components/section-columns";
 
 export default function AboutPage() {
   return (
-    <PageContainer>
-      <PageBanner>
+    <>
+      <PageSection>
         <h1>About</h1>
-      </PageBanner>
+      </PageSection>
       <PageSection backgroundColour="green">
         <SectionColumns
           title="intro section"
@@ -20,6 +18,6 @@ export default function AboutPage() {
           buttonHref="/about"
         />
       </PageSection>
-    </PageContainer>
+    </>
   );
 }

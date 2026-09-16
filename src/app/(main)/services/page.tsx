@@ -1,12 +1,12 @@
 //the Services page
 
-import PageContainer from "@/components/page-container";
+import PageSection from "@/components/page-section";
 
 export default function ServicesPage() {
   return (
-    <PageContainer>
+    <PageSection>
       <h1>Services</h1>
       {/* rest of content */}
-    </PageContainer>
+    </PageSection>
   );
 }

@@ -1,12 +1,12 @@
 //the Projects page
 
-import PageContainer from "@/components/page-container";
+import PageSection from "@/components/page-section";
 
 export default function ProjectsPage() {
   return (
-    <PageContainer>
+    <PageSection>
       <h1>Projects</h1>
       {/* rest of content */}
-    </PageContainer>
+    </PageSection>
   );
 }

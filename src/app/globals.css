@@ -17,14 +17,14 @@
 }
 
 @theme inline {
-  --color-background: var(--charis-green);
+  --color-background: var(--charis-green-2);
   --font-serif: var(--font-cormorant-garamond);
   --font-sans: var(--font-inter);
   --color-text: var(--charis-black);
 }
 
 body {
-  background: var(--charis-green);
+  background: var(--charis-green-2);
   color: var(--charis-light);
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -66,7 +66,7 @@ main {
 
 /*call to action buttons*/
 .button-style {
-  background: var(--charis-green);
+  background: var(--charis-green-2);
   color: var(--charis-light);
   font-family: var(--font-sans);
   border-radius: 0.25rem;
@@ -81,4 +81,19 @@ main {
 h5 {
   font-family: var(--font-sans);
   font-weight: 600;
+}
+
+/*section headers*/
+h2 {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+/*section text*/
+p {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }

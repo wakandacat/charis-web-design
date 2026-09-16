@@ -1,12 +1,12 @@
 // the Contact page
 
-import PageContainer from "@/components/page-container";
+import PageSection from "@/components/page-section";
 
 export default function ContactPage() {
   return (
-    <PageContainer>
+    <PageSection>
       <h1>Contact</h1>
       {/* rest of content */}
-    </PageContainer>
+    </PageSection>
   );
 }

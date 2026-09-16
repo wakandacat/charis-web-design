@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useIsSmallScreen } from "@/components/screen-size-provider";
 // using simplicons.org for the social icons as lucide-react does not have them
+import logoIcon from "@/app/icon.png";
+import charisText from "@/assets/charis-text-tagline.png";
 
 export default function Footer() {
   const currYear = new Date().getFullYear();
@@ -18,22 +20,28 @@ export default function Footer() {
           isSmallScreen ? "flex-col" : "flex-row"
         }`}
       >
-        <div className="flex flex-row items-center mr-auto">
+        <div className="flex flex-row items-center justify-start md:mr-auto">
           <Image
-            src="/icon.png"
+            src={logoIcon}
             alt="Charis Web Design Icon"
-            className="pr-2 self-stretch h-auto w-auto object-contain"
-            width={100}
-            height={100}
+            className="pr-2 h-25 w-auto object-contain"
             priority
           />
-          <div className="flex flex-col items-center">
+          {/* <div className="flex flex-col items-center">
             <p className="charis-title-style text-[3.25rem]">Charis</p>
             <p className="charis-secondaryline-style uppercase text-l whitespace-nowrap">
               Web Design
             </p>
             <p className="charis-tagline-style text-xl">Built with grace.</p>
-          </div>
+          </div> */}
+          <Image
+            src={charisText}
+            alt=""
+            aria-hidden="true"
+            className="h-25 w-auto object-contain"
+            placeholder="blur"
+            preload
+          />
         </div>
 
         <div

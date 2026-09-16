@@ -10,7 +10,7 @@ export default function MainLayout({
   return (
     <>
       <Navbar />
-      <main className="flex-grow bg-(--charis-green)">{children}</main>
+      <main className="grow bg-background">{children}</main>
       <Footer />
     </>
   );

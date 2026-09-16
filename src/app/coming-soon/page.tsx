@@ -2,7 +2,7 @@
 
 import charisText from "@/assets/decorative/charis-text-notagline.png";
 import flowerDecor from "@/assets/decorative/growing-flower.png";
-import PageBanner from "@/components/page-banner";
+import PageSection from "@/components/page-section";
 import EmailSignup from "@/components/email-signup";
 import Image from "next/image";
 
@@ -20,8 +20,8 @@ export default function ComingSoon() {
           />
         </div>
       </div>
-      <PageBanner>
-        <div className="flex flex-col gap-20">
+      <PageSection>
+        <div className="flex min-h-[calc(100svh-var(--navbar-height)-8rem)] flex-col justify-center gap-20">
           <h1 className="charis-title-style text-6xl tracking-wider text-white">
             Growing with grace.
           </h1>
@@ -35,7 +35,7 @@ export default function ComingSoon() {
           </div>
           <EmailSignup />
         </div>
-      </PageBanner>
+      </PageSection>
       <section className="relative py-auto">
         <div className="relative mx-auto w-full max-w-7xl px-6 flex flex-row justify-between items-center">
           <div className="flex flex-row mt-2 gap-3 mr-auto">

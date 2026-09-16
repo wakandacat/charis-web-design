@@ -6,6 +6,7 @@ import { useIsSmallScreen } from "@/components/screen-size-provider";
 import { useEffect, useState } from "react";
 import { X, Menu } from "lucide-react";
 import { usePathname } from "next/navigation";
+import logoIcon from "@/app/icon.png";
 
 //navbar component to be used on all pages
 //display the site icon
@@ -32,8 +33,8 @@ export default function Navbar() {
 
   if (isSmallScreen) {
     return (
-      <header>
-        <nav className="bg-background px-6 h-(--navbar-height) py-4 mx-auto w-full max-w-7xl relative">
+      <header className="bg-background">
+        <nav className=" px-6 h-(--navbar-height) py-4 mx-auto w-full max-w-7xl relative">
           <div className="flex flex-row items-center justify-between w-full">
             <Link
               className="flex flew-row items-center"
@@ -41,14 +42,12 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
             >
               <Image
-                src="/icon.png"
+                src={logoIcon}
                 alt="Charis Web Design Icon"
-                className="pr-2"
-                width={50}
-                height={50}
+                className="pr-2 h-12 w-auto object-contain"
                 priority
               />
-              <p className="font-serif text-2xl">Charis Web Design</p>
+              <h3 className="font-serif text-2xl">Charis Web Design</h3>
             </Link>
             <a onClick={() => setMenuOpen(!menuOpen)}>
               {menuOpen ? (
@@ -131,14 +130,12 @@ export default function Navbar() {
             <Link href="/">
               <div className="flex flex-row items-center">
                 <Image
-                  src="/icon.png"
+                  src={logoIcon}
                   alt="Charis Web Design Icon"
-                  className="pr-2"
-                  width={50}
-                  height={50}
+                  className="pr-2 h-12 w-auto object-contain"
                   priority
                 />
-                <p className="font-serif text-3xl">Charis Web Design</p>
+                <h3 className="font-serif text-2xl">Charis Web Design</h3>
               </div>
             </Link>
 
