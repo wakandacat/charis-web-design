@@ -37,7 +37,7 @@ export default function EmailSignup() {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="px-5 py-3 border-2 border-(--charis-white) rounded-sm cursor-pointer hover:bg-(--charis-accent-green) hover:text-(--charis-green-2) hover:scale-105 transition-[transform,background-color] ease-in-out duration-300"
+          className="button-style"
         >
           {status === "loading" ? "Submitting..." : "Submit"}
         </button>

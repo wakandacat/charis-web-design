@@ -70,12 +70,25 @@ main {
   color: var(--charis-light);
   font-family: var(--font-sans);
   border-radius: 0.25rem;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid var(--charis-white);
+  display: inline-block;
+  transform-origin: center;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .button-style:hover,
 .button-style:active {
   background: var(--charis-accent-green);
-  color: var(--charis-yellow);
+  color: var(--charis-gray);
+  transform: scale(1.01);
+}
+
+.button-style-2 {
+  font-family: var(--font-sans);
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
 }
 
 h5 {
@@ -86,14 +99,29 @@ h5 {
 /*section headers*/
 h2 {
   font-family: var(--font-serif);
-  font-size: 2.25rem;
+  font-size: 3rem;
   line-height: 1.25;
+  font-weight: 600;
+}
+
+/*section subheaders*/
+h3 {
+  font-family: var(--font-sans);
+  font-size: 2rem;
+  line-height: 2rem;
   font-weight: 600;
 }
 
 /*section text*/
 p {
   font-family: var(--font-sans);
-  font-size: 1.125rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+/*larger section text*/
+.larger-text {
+  font-family: var(--font-sans);
+  font-size: 1.75rem;
   line-height: 1.75rem;
 }
