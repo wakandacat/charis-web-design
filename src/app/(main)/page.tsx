@@ -8,6 +8,7 @@ import PageSection from "@/components/page-section";
 import Image, { type StaticImageData } from "next/image";
 import serviceBack from "@/assets/decorative/service-background.jpg";
 import contactBack from "@/assets/decorative/half-flower-back.png"
+import ArrowButton from "@/components/arrow-button";
 
 export default function Home() {
   return (
@@ -51,9 +52,9 @@ export default function Home() {
         <div className="flex flex-row items-start justify-between gap-4 text-white">
           <h2>Services</h2>
           <div className="flex flex-col items-start justify-center gap-4 text-white">
-            <a className="button-style-2" href="/services">
-              Learn more about what we do
-            </a>
+            <ArrowButton href="/services">
+              <p>Learn more &#8594;</p>
+            </ArrowButton>
           </div>
         </div>
         {/* one card per row on small screens, three across from md up —
