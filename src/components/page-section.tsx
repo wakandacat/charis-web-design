@@ -45,6 +45,7 @@ export default function PageSection({
   backgroundImage,
   backgroundImagePosition = "center",
   backgroundImageFit = "cover",
+  backgroundOverlay = false,
   preloadImage = false,
   children,
 }: {
@@ -57,13 +58,15 @@ export default function PageSection({
   backgroundImagePosition?: BackgroundImagePosition;
   //"contain" keeps the whole image visible instead of cropping it to cover
   backgroundImageFit?: BackgroundImageFit;
+  //darkens the background image so light text stays readable, covers the full section width
+  backgroundOverlay?: boolean;
   //set on a section whose image is visible when the page first loads
   preloadImage?: boolean;
   children: React.ReactNode;
 }) {
   return (
     <section
-      className={`relative ${backgroundColour ? backgroundColours[backgroundColour] : ""}`}
+      className={`-mt-px relative ${backgroundColour ? backgroundColours[backgroundColour] : ""}`}
     >
       {backgroundImage && (
         <Image
@@ -76,6 +79,9 @@ export default function PageSection({
           placeholder="blur"
           preload={preloadImage}
         />
+      )}
+      {backgroundOverlay && (
+        <div aria-hidden="true" className="absolute inset-0 bg-black/20" />
       )}
       <div className="relative mx-auto w-full max-w-7xl px-6 py-16">
         {children}

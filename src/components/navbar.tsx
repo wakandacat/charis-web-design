@@ -47,7 +47,7 @@ export default function Navbar() {
                 className="pr-2 h-12 w-auto object-contain"
                 priority
               />
-              <h3 className="font-serif text-2xl">Charis Web Design</h3>
+              <h4 className="font-serif text-2xl">Charis Web Design</h4>
             </Link>
             <a onClick={() => setMenuOpen(!menuOpen)}>
               {menuOpen ? (
@@ -60,11 +60,11 @@ export default function Navbar() {
 
           {menuOpen && (
             <div className="absolute left-0 top-full w-full z-10">
-              <ul className="bg-background flex flex-col items-center font-sans justify-between gap-4 border border-(--charis-yellow) p-4 text-lg">
+              <ul className="bg-background flex flex-col items-center font-sans justify-between gap-4 border border-(--charis-accent-green) p-4 text-lg">
                 <Link
-                  className={`hover:text-(--charis-yellow) ${
+                  className={`hover:text-(--charis-accent-green) ${
                     pathname === "/"
-                      ? "text-(--charis-yellow)"
+                      ? "text-(--charis-accent-green)"
                       : "text-(--charis-white)"
                   }`}
                   href="/"
@@ -73,9 +73,9 @@ export default function Navbar() {
                   Home
                 </Link>
                 <Link
-                  className={`hover:text-(--charis-yellow) ${
+                  className={`hover:text-(--charis-accent-green) ${
                     pathname === "/projects"
-                      ? "text-(--charis-yellow)"
+                      ? "text-(--charis-accent-green)"
                       : "text-(--charis-white)"
                   }`}
                   href="/projects"
@@ -84,9 +84,9 @@ export default function Navbar() {
                   Projects
                 </Link>
                 <Link
-                  className={`hover:text-(--charis-yellow) ${
+                  className={`hover:text-(--charis-accent-green) ${
                     pathname === "/services"
-                      ? "text-(--charis-yellow)"
+                      ? "text-(--charis-accent-green)"
                       : "text-(--charis-white)"
                   }`}
                   href="/services"
@@ -95,9 +95,9 @@ export default function Navbar() {
                   Services
                 </Link>
                 <Link
-                  className={`hover:text-(--charis-yellow) ${
+                  className={`hover:text-(--charis-accent-green) ${
                     pathname === "/contact"
-                      ? "text-(--charis-yellow)"
+                      ? "text-(--charis-accent-green)"
                       : "text-(--charis-white)"
                   }`}
                   href="/about"
@@ -106,9 +106,9 @@ export default function Navbar() {
                   About
                 </Link>
                 <Link
-                  className={`hover:text-(--charis-yellow) ${
+                  className={`hover:text-(--charis-accent-green) ${
                     pathname === "/contact"
-                      ? "text-(--charis-yellow)"
+                      ? "text-(--charis-accent-green)"
                       : "text-(--charis-white)"
                   }`}
                   href="/contact"
@@ -135,15 +135,15 @@ export default function Navbar() {
                   className="pr-2 h-12 w-auto object-contain"
                   priority
                 />
-                <h3 className="font-serif text-2xl">Charis Web Design</h3>
+                <h4 className="font-serif text-2xl">Charis Web Design</h4>
               </div>
             </Link>
 
             <ul className="flex flex-row gap-4 text-lg font-sans justify-center items-baseline ml-auto">
               <Link
-                className={`hover:text-(--charis-yellow) ${
+                className={`hover:text-(--charis-accent-green) ${
                   pathname === "/"
-                    ? "text-(--charis-yellow)"
+                    ? "text-(--charis-accent-green)"
                     : "text-(--charis-white)"
                 }`}
                 href="/"
@@ -151,9 +151,9 @@ export default function Navbar() {
                 Home
               </Link>
               <Link
-                className={`hover:text-(--charis-yellow) ${
+                className={`hover:text-(--charis-accent-green) ${
                   pathname === "/projects"
-                    ? "text-(--charis-yellow)"
+                    ? "text-(--charis-accent-green)"
                     : "text-(--charis-white)"
                 }`}
                 href="/projects"
@@ -161,9 +161,9 @@ export default function Navbar() {
                 Projects
               </Link>
               <Link
-                className={`hover:text-(--charis-yellow) ${
+                className={`hover:text-(--charis-accent-green) ${
                   pathname === "/services"
-                    ? "text-(--charis-yellow)"
+                    ? "text-(--charis-accent-green)"
                     : "text-(--charis-white)"
                 }`}
                 href="/services"
@@ -171,9 +171,9 @@ export default function Navbar() {
                 Services
               </Link>
               <Link
-                className={`hover:text-(--charis-yellow) ${
+                className={`hover:text-(--charis-accent-green) ${
                   pathname === "/contact"
-                    ? "text-(--charis-yellow)"
+                    ? "text-(--charis-accent-green)"
                     : "text-(--charis-white)"
                 }`}
                 href="/about"
@@ -181,9 +181,9 @@ export default function Navbar() {
                 About
               </Link>
               <Link
-                className={`hover:text-(--charis-yellow) ${
+                className={`hover:text-(--charis-accent-green) ${
                   pathname === "/contact"
-                    ? "text-(--charis-yellow)"
+                    ? "text-(--charis-accent-green)"
                     : "text-(--charis-white)"
                 }`}
                 href="/contact"
