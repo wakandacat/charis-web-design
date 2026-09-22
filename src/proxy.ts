@@ -3,7 +3,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const DEVELOPMENT_MODE = true; //set to TRUE to enable development mode, FALSE to disable
+const DEVELOPMENT_MODE = false; //set to TRUE to enable development mode, FALSE to disable
 
 export function proxy(request: NextRequest) {
   

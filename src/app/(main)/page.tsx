@@ -3,12 +3,11 @@
 //all sections will have a call to action button to take users to corresponding pages
 
 import homeBanner from "@/assets/decorative/home-banner.png";
-import homeBanner2 from "@/assets/decorative/home-banner-fixed.png";
 import charisText from "@/assets/charis-text-tagline.png";
 import PageSection from "@/components/page-section";
-import SectionColumns from "@/components/section-columns";
 import Image, { type StaticImageData } from "next/image";
 import serviceBack from "@/assets/decorative/service-background.jpg";
+import contactBack from "@/assets/decorative/half-flower-back.png"
 
 export default function Home() {
   return (
@@ -36,15 +35,10 @@ export default function Home() {
         </div>
       </PageSection>
       <PageSection backgroundColour="accentgreen">
-        <div className="flex flex-col items-center justify-center gap-6 text-center text-(--charis-gray)">
+        <div className="text-stack items-center justify-center text-center text-(--charis-gray)">
           <h2>Welcome to Charis Web Design</h2>
-          <p className="larger-text">
-            We specialize in pixel-perfect designs that keep the{" "}
-            <strong>people</strong> at the forefront.
-          </p>
-          <p>
-            We make sure everything we build is deeply connected to your needs.
-            Empathy and grace.
+          <p className="larger-text ">
+            Driven by empathy, passion, and grace, we lay down strong roots for designs that keep the <strong>people</strong> in focus. Because we know that every great idea starts with a seed, and we're here to help it blossom.
           </p>
         </div>
       </PageSection>
@@ -180,16 +174,15 @@ export default function Home() {
         </div>
       </PageSection>
       <PageSection backgroundColour="accentgreen">
-        <SectionColumns
-          title="projects"
-          text="Some stuff about my past work goes here."
-          imageAlt=""
-          buttonLabel="View projects"
-          buttonHref="/projects"
-        />
+          <h2>Showcase</h2>
       </PageSection>
-      <PageSection backgroundColour="accentgreen">
-        <h2>Contact me</h2>
+      <PageSection backgroundColour="accentgreen" backgroundImage={contactBack} backgroundImageFit="cover" matchImageHeight>
+        {/* <Image src={contactBack} alt="" className="relative"></Image> */}
+        <div className="text-stack text-(--charis-white) items-start justify-center h-full">
+          <h2>Let's grow together.</h2>
+          <p>Let us know how we can help.</p>
+          <a href="/contact" className="button-style">Contact Us</a>
+        </div>
       </PageSection>
     </>
   );

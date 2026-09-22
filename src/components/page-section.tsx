@@ -46,6 +46,7 @@ export default function PageSection({
   backgroundImagePosition = "center",
   backgroundImageFit = "cover",
   backgroundOverlay = false,
+  matchImageHeight = false,
   preloadImage = false,
   children,
 }: {
@@ -62,11 +63,18 @@ export default function PageSection({
   backgroundOverlay?: boolean;
   //set on a section whose image is visible when the page first loads
   preloadImage?: boolean;
+  //lock the image height to the image's natural aspect ratio
+  matchImageHeight?: boolean;
   children: React.ReactNode;
 }) {
   return (
     <section
       className={`-mt-px relative ${backgroundColour ? backgroundColours[backgroundColour] : ""}`}
+      style={
+        matchImageHeight && backgroundImage
+          ? { aspectRatio: `${backgroundImage.width} / ${backgroundImage.height}` }
+          : undefined
+      }
     >
       {backgroundImage && (
         <Image
@@ -83,7 +91,7 @@ export default function PageSection({
       {backgroundOverlay && (
         <div aria-hidden="true" className="absolute inset-0 bg-black/20" />
       )}
-      <div className="relative mx-auto w-full max-w-7xl px-6 py-16">
+      <div className="relative mx-auto w-full h-full max-w-7xl px-6 py-16">
         {children}
       </div>
     </section>

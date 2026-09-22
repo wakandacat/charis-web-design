@@ -125,3 +125,10 @@ p {
   font-size: 1.75rem;
   line-height: 1.75rem;
 }
+
+/* for stacked text*/
+.text-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12;
+}
