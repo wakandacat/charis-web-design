@@ -44,12 +44,12 @@ export default function EmailSignup() {
       </div>
 
       {status === "success" && (
-        <p className="charis-secondaryline-style text-sm md:text--md text-white mt-3">
+        <p className="text-sm md:text--md text-white mt-3">
           Thanks, you're on the list!
         </p>
       )}
       {status === "error" && (
-        <p className="charis-secondaryline-style text-sm md:text--md text-white mt-3">
+        <p className="text-sm md:text--md text-white mt-3">
           Something went wrong, try again.
         </p>
       )}

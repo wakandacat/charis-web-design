@@ -2,6 +2,7 @@
 
 import PageSection from "@/components/page-section";
 import SectionColumns from "@/components/section-columns";
+import ContactSection from "@/components/contact-section";
 
 export default function AboutPage() {
   return (
@@ -17,6 +18,7 @@ export default function AboutPage() {
           buttonLabel="About me"
           buttonHref="/about"
         />
+        <ContactSection/>
       </PageSection>
     </>
   );
