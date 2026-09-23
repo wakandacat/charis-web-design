@@ -89,7 +89,7 @@ export default function PageSection({
         />
       )}
       {backgroundOverlay && (
-        <div aria-hidden="true" className="absolute inset-0 bg-black/20" />
+        <div aria-hidden="true" className="absolute inset-0 bg-black/30" />
       )}
       <div className="relative mx-auto w-full h-full max-w-7xl px-6 py-16">
         {children}

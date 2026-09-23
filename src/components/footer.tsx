@@ -27,13 +27,6 @@ export default function Footer() {
             className="pr-2 h-25 w-auto object-contain"
             priority
           />
-          {/* <div className="flex flex-col items-center">
-            <p className="charis-title-style text-[3.25rem]">Charis</p>
-            <p className="charis-secondaryline-style uppercase text-l whitespace-nowrap">
-              Web Design
-            </p>
-            <p className="charis-tagline-style text-xl">Built with grace.</p>
-          </div> */}
           <Image
             src={charisText}
             alt=""

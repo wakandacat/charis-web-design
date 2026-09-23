@@ -19,7 +19,7 @@
 @theme inline {
   --color-background: var(--charis-green-2);
   --font-serif: var(--font-cormorant-garamond);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-inter); /* GOES WITH: letter-spacing: 3px; font-weight: 250;*/
   --color-text: var(--charis-black);
 }
 
@@ -39,13 +39,6 @@ main {
   line-height:1;
 }
 
-/*"WEB DESIGN"*/
-.charis-secondaryline-style {
-  font-family: var(--font-sans);
-  font-weight: 50;
-  letter-spacing: 6px;
-}
-
 /*"Built with grace."*/
 .charis-tagline-style {
   font-family: var(--font-serif);
@@ -57,6 +50,8 @@ main {
 .link-style {
   color: var(--charis-light);
   font-family: var(--font-sans);
+  letter-spacing: 3px;
+  font-weight: 250;
 }
 
 .link-style:hover,
@@ -69,6 +64,8 @@ main {
   background: var(--charis-green-2);
   color: var(--charis-light);
   font-family: var(--font-sans);
+  letter-spacing: 3px;
+  font-weight: 400;
   border-radius: 0.25rem;
   padding: 0.75rem 1.25rem;
   border: 2px solid var(--charis-white);
@@ -85,15 +82,23 @@ main {
   transform: scale(1.01);
 }
 
+/*SEE ARROWBUTTON.TSX*/
 .button-style-2 {
-  font-family: var(--font-sans);
+  border-radius: 0.25rem;
   padding: 0.75rem 1.25rem;
+  border: 2px solid var(--charis-white);
   cursor: pointer;
+  font-family: var(--font-sans);
+  letter-spacing: 3px;
+  font-weight: 400;
 }
 
 h5 {
   font-family: var(--font-sans);
+  line-height: 2rem;
   font-weight: 600;
+  letter-spacing: 3px;
+  font-weight: 250;
 }
 
 /*section headers*/
@@ -109,7 +114,8 @@ h3 {
   font-family: var(--font-sans);
   font-size: 2rem;
   line-height: 2rem;
-  font-weight: 600;
+  letter-spacing: 3px;
+  font-weight: 400;
 }
 
 /*section text*/
@@ -117,6 +123,8 @@ p {
   font-family: var(--font-sans);
   font-size: 1.25rem;
   line-height: 1.75rem;
+  letter-spacing: 3px;
+  font-weight: 250;
 }
 
 /*larger section text*/
@@ -124,11 +132,13 @@ p {
   font-family: var(--font-sans);
   font-size: 1.75rem;
   line-height: 1.75rem;
+  letter-spacing: 3px;
+  font-weight: 250;
 }
 
 /* for stacked text*/
 .text-stack {
   display: flex;
   flex-direction: column;
-  gap: 12;
+  gap: 50;
 }

@@ -7,8 +7,9 @@ import charisText from "@/assets/charis-text-tagline.png";
 import PageSection from "@/components/page-section";
 import Image, { type StaticImageData } from "next/image";
 import serviceBack from "@/assets/decorative/service-background.jpg";
-import contactBack from "@/assets/decorative/half-flower-back.png"
 import ArrowButton from "@/components/arrow-button";
+import Link from "next/link";
+import ContactSection from "@/components/contact-section";
 
 export default function Home() {
   return (
@@ -49,18 +50,18 @@ export default function Home() {
         backgroundImagePosition="center"
         backgroundOverlay
       >
-        <div className="flex flex-row items-start justify-between gap-4 text-white">
+        <div className="flex flex-row items-center justify-between gap-4 text-white">
           <h2>Services</h2>
-          <div className="flex flex-col items-start justify-center gap-4 text-white">
+          <div className="flex flex-col items-start justify-center gap-4">
             <ArrowButton href="/services">
-              <p>Learn more &#8594;</p>
+              <p>Learn more</p>
             </ArrowButton>
           </div>
         </div>
         {/* one card per row on small screens, three across from md up —
             equal-sized tracks so every card matches the tallest one */}
         <div className="relative my-20 grid w-full grid-cols-1 grid-rows-3 gap-10 text-center lg:grid-cols-3 lg:grid-rows-1 lg:gap-20">
-          <a href="/services" className="button-style group">
+          <Link href="/services" className="button-style group">
             <div className="flex h-full w-full flex-col items-center justify-start gap-8 p-4">
               <svg
                 width="135"
@@ -91,8 +92,8 @@ export default function Home() {
                 needs.
               </p>
             </div>
-          </a>
-          <a href="/services" className="button-style group">
+          </Link>
+          <Link href="/services" className="button-style group">
             <div className="flex h-full w-full flex-col items-center justify-start gap-8 p-4">
               <svg
                 width="136"
@@ -124,11 +125,11 @@ export default function Home() {
 
               <h3>Website Redesign</h3>
               <p>
-                Refresh your <em>existing</em> website to suit a new direction.
+                Refresh your <strong>existing</strong> website to suit a new direction.
               </p>
             </div>
-          </a>
-          <a href="/services" className="button-style group">
+          </Link>
+          <Link href="/services" className="button-style group">
             <div className="flex h-full w-full flex-col items-center justify-start gap-8 p-4">
               <svg
                 width="138"
@@ -171,20 +172,13 @@ export default function Home() {
                 Get expert advice on improving your website's user experience.
               </p>
             </div>
-          </a>
+          </Link>
         </div>
       </PageSection>
       <PageSection backgroundColour="accentgreen">
           <h2>Showcase</h2>
       </PageSection>
-      <PageSection backgroundColour="accentgreen" backgroundImage={contactBack} backgroundImageFit="cover" matchImageHeight>
-        {/* <Image src={contactBack} alt="" className="relative"></Image> */}
-        <div className="text-stack text-(--charis-white) items-start justify-center h-full">
-          <h2>Let's grow together.</h2>
-          <p>Let us know how we can help.</p>
-          <a href="/contact" className="button-style">Contact Us</a>
-        </div>
-      </PageSection>
+      <ContactSection/>
     </>
   );
 }

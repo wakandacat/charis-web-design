@@ -70,7 +70,7 @@ export default function Navbar() {
                   href="/"
                   onClick={() => setMenuOpen(false)}
                 >
-                  Home
+                  <p>Home</p>
                 </Link>
                 <Link
                   className={`hover:text-(--charis-accent-green) ${
@@ -81,7 +81,7 @@ export default function Navbar() {
                   href="/projects"
                   onClick={() => setMenuOpen(false)}
                 >
-                  Projects
+                  <p>Projects</p>
                 </Link>
                 <Link
                   className={`hover:text-(--charis-accent-green) ${
@@ -92,7 +92,7 @@ export default function Navbar() {
                   href="/services"
                   onClick={() => setMenuOpen(false)}
                 >
-                  Services
+                  <p>Services</p>
                 </Link>
                 <Link
                   className={`hover:text-(--charis-accent-green) ${
@@ -103,7 +103,7 @@ export default function Navbar() {
                   href="/about"
                   onClick={() => setMenuOpen(false)}
                 >
-                  About
+                  <p>About</p>
                 </Link>
                 <Link
                   className={`hover:text-(--charis-accent-green) ${
@@ -114,7 +114,7 @@ export default function Navbar() {
                   href="/contact"
                   onClick={() => setMenuOpen(false)}
                 >
-                  Contact
+                  <p>Contact</p>
                 </Link>
               </ul>
             </div>
@@ -148,7 +148,7 @@ export default function Navbar() {
                 }`}
                 href="/"
               >
-                Home
+                <p>Home</p>
               </Link>
               <Link
                 className={`hover:text-(--charis-accent-green) ${
@@ -158,7 +158,7 @@ export default function Navbar() {
                 }`}
                 href="/projects"
               >
-                Projects
+                <p>Projects</p>
               </Link>
               <Link
                 className={`hover:text-(--charis-accent-green) ${
@@ -168,7 +168,7 @@ export default function Navbar() {
                 }`}
                 href="/services"
               >
-                Services
+                <p>Services</p>
               </Link>
               <Link
                 className={`hover:text-(--charis-accent-green) ${
@@ -178,7 +178,7 @@ export default function Navbar() {
                 }`}
                 href="/about"
               >
-                About
+                <p>About</p>
               </Link>
               <Link
                 className={`hover:text-(--charis-accent-green) ${
@@ -188,7 +188,7 @@ export default function Navbar() {
                 }`}
                 href="/contact"
               >
-                Contact
+                <p>Contact</p>
               </Link>
             </ul>
           </span>

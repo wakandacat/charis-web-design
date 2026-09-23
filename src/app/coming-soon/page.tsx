@@ -26,10 +26,10 @@ export default function ComingSoon() {
             Growing with grace.
           </h1>
           <div>
-            <h2 className="charis-secondaryline-style text-md md:text-2xl text-white">
+            <h2 className="larger-text text-md md:text-2xl text-white">
               Our website is on the way.
             </h2>
-            <h2 className="charis-secondaryline-style text-md md:text-2xl text-white">
+            <h2 className="larger-text text-md md:text-2xl text-white">
               Find out when it's ready.
             </h2>
           </div>
