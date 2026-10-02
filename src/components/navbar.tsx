@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useIsSmallScreen } from "@/components/screen-size-provider";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { X, Menu } from "lucide-react";
 import { usePathname } from "next/navigation";
 import logoIcon from "@/app/icon.png";
@@ -15,185 +14,187 @@ import logoIcon from "@/app/icon.png";
 //the current page link will be displayed in a different colour
 
 export default function Navbar() {
-  //check the screen size
-  const isSmallScreen = useIsSmallScreen();
-
-  //get the currrent page path
   const pathname = usePathname();
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLElement>(null); //grab a reference to the dropdown to close it when the user clicks away
+  const navRef = useRef<HTMLElement>(null); //for mobile state
 
+  //close the menu if the user clicks outside of it or scrolls
   useEffect(() => {
-    // close the menu if the screen size changes to large
-    if (!isSmallScreen) {
-      setMenuOpen(false);
+    function handleClickOutside(event: MouseEvent | Event) {
+      // close the dropdown if the user clicks outside or scrolling
+      const target = event.target as Node;
+
+
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(target)
+      ) {
+        setIsMenuOpen(false);
+      }
+      if (navRef.current && !navRef.current.contains(target)) {
+        //close mobile menu after clicking off or scrolling
+        setIsMenuOpen(false);
+      }
     }
-  }, [isSmallScreen]);
 
-  //state to track menu state if screen is small
-  const [menuOpen, setMenuOpen] = useState(false);
+    // attach listener when mounted
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("scroll", handleClickOutside);
 
-  if (isSmallScreen) {
-    return (
-      <header className="bg-background">
-        <nav className=" px-6 h-(--navbar-height) py-4 mx-auto w-full max-w-7xl relative">
-          <div className="flex flex-row items-center justify-between w-full">
-            <Link
-              className="flex flew-row items-center"
-              href="/"
-              onClick={() => setMenuOpen(false)}
+    // cleanup when unmounted
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("scroll", handleClickOutside);
+    };
+  }, []);
+
+  //get the screen size
+  useEffect(() => {
+    const media = window.matchMedia("(min-width: 768px)");
+    const updateBreakpoint = (event: MediaQueryListEvent) => {
+      setIsDesktop(event.matches);
+      setIsMenuOpen(false);
+    };
+
+    setIsDesktop(media.matches);
+    media.addEventListener("change", updateBreakpoint);
+
+    return () => media.removeEventListener("change", updateBreakpoint);
+  }, []);
+
+  const linkClassName = (href: string) =>
+    `hover:text-(--charis-accent-green) ${
+      pathname === href
+        ? "text-(--charis-accent-green)"
+        : "text-(--charis-white)"
+    }`;
+
+  return (
+    <header className="bg-background">
+      <nav className="relative mx-auto flex h-(--navbar-height) w-full max-w-7xl items-center justify-between px-6 py-4" ref={navRef}>
+        <Link
+          className="flex items-center"
+          href="/"
+          onClick={() => setIsMenuOpen(false)}
+        >
+          <Image
+            src={logoIcon}
+            alt="Charis Web Design Icon"
+            className="h-12 w-auto object-contain pr-2"
+            priority
+          />
+          <h4 className="font-serif text-2xl">Charis Web Design</h4>
+        </Link>
+
+        {isDesktop ? (
+          <ul className="ml-auto flex items-baseline justify-center gap-4 font-sans text-lg">
+            <li>
+              <Link className={linkClassName("/")} href="/" aria-current={pathname === "/" ? "page" : undefined}>
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link className={linkClassName("/projects")} href="/projects" aria-current={pathname === "/projects" ? "page" : undefined}>
+                Projects
+              </Link>
+            </li>
+            <li>
+              <Link className={linkClassName("/services")} href="/services" aria-current={pathname === "/services" ? "page" : undefined}>
+                Services
+              </Link>
+            </li>
+            <li>
+              <Link className={linkClassName("/about")} href="/about" aria-current={pathname === "/about" ? "page" : undefined}>
+                About
+              </Link>
+            </li>
+            <li>
+              <Link className={linkClassName("/contact")} href="/contact" aria-current={pathname === "/contact" ? "page" : undefined}>
+                Contact
+              </Link>
+            </li>
+          </ul>
+        ) : (
+          <>
+            <button
+              type="button"
+              className="flex size-11 items-center justify-center"
+              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-navigation"
+              onClick={() => setIsMenuOpen((open) => !open)}
             >
-              <Image
-                src={logoIcon}
-                alt="Charis Web Design Icon"
-                className="pr-2 h-12 w-auto object-contain"
-                priority
-              />
-              <h4 className="font-serif text-2xl">Charis Web Design</h4>
-            </Link>
-            <a onClick={() => setMenuOpen(!menuOpen)}>
-              {menuOpen ? (
+              {isMenuOpen ? (
                 <X size={30} strokeWidth={1.5} />
               ) : (
                 <Menu size={30} strokeWidth={1.5} />
               )}
-            </a>
-          </div>
-
-          {menuOpen && (
-            <div className="absolute left-0 top-full w-full z-10">
-              <ul className="bg-background flex flex-col items-center font-sans justify-between gap-4 border border-(--charis-accent-green) p-4 text-lg">
-                <Link
-                  className={`hover:text-(--charis-accent-green) ${
-                    pathname === "/"
-                      ? "text-(--charis-accent-green)"
-                      : "text-(--charis-white)"
-                  }`}
-                  href="/"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  <p>Home</p>
-                </Link>
-                <Link
-                  className={`hover:text-(--charis-accent-green) ${
-                    pathname === "/projects"
-                      ? "text-(--charis-accent-green)"
-                      : "text-(--charis-white)"
-                  }`}
-                  href="/projects"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  <p>Projects</p>
-                </Link>
-                <Link
-                  className={`hover:text-(--charis-accent-green) ${
-                    pathname === "/services"
-                      ? "text-(--charis-accent-green)"
-                      : "text-(--charis-white)"
-                  }`}
-                  href="/services"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  <p>Services</p>
-                </Link>
-                <Link
-                  className={`hover:text-(--charis-accent-green) ${
-                    pathname === "/contact"
-                      ? "text-(--charis-accent-green)"
-                      : "text-(--charis-white)"
-                  }`}
-                  href="/about"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  <p>About</p>
-                </Link>
-                <Link
-                  className={`hover:text-(--charis-accent-green) ${
-                    pathname === "/contact"
-                      ? "text-(--charis-accent-green)"
-                      : "text-(--charis-white)"
-                  }`}
-                  href="/contact"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  <p>Contact</p>
-                </Link>
+            </button>
+            <nav
+              id="mobile-navigation"
+              aria-label="Main navigation"
+              hidden={!isMenuOpen}
+              ref={menuRef}
+              className="absolute z-200 left-0 top-full z-10 w-full border-t border-b border-(--charis-accent-green) bg-background p-4"
+            >
+              <ul className="flex flex-col items-center justify-between gap-4 font-sans text-lg">
+                <li>
+                  <Link
+                    className={linkClassName("/")}
+                    href="/"
+                    aria-current={pathname === "/" ? "page" : undefined}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className={linkClassName("/projects")}
+                    href="/projects"
+                    aria-current={pathname === "/projects" ? "page" : undefined}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Projects
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className={linkClassName("/services")}
+                    href="/services"
+                    aria-current={pathname === "/services" ? "page" : undefined}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Services
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className={linkClassName("/about")}
+                    href="/about"
+                    aria-current={pathname === "/about" ? "page" : undefined}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className={linkClassName("/contact")}
+                    href="/contact"
+                    aria-current={pathname === "/contact" ? "page" : undefined}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Contact
+                  </Link>
+                </li>
               </ul>
-            </div>
-          )}
-        </nav>
-      </header>
-    );
-  } else {
-    return (
-      <header>
-        <nav className="bg-background px-6 h-(--navbar-height) py-4 mx-auto w-full max-w-7xl">
-          <span className="flex flex-row items-center w-full">
-            <Link href="/">
-              <div className="flex flex-row items-center">
-                <Image
-                  src={logoIcon}
-                  alt="Charis Web Design Icon"
-                  className="pr-2 h-12 w-auto object-contain"
-                  priority
-                />
-                <h4 className="font-serif text-2xl">Charis Web Design</h4>
-              </div>
-            </Link>
-
-            <ul className="flex flex-row gap-4 text-lg font-sans justify-center items-baseline ml-auto">
-              <Link
-                className={`hover:text-(--charis-accent-green) ${
-                  pathname === "/"
-                    ? "text-(--charis-accent-green)"
-                    : "text-(--charis-white)"
-                }`}
-                href="/"
-              >
-                <p>Home</p>
-              </Link>
-              <Link
-                className={`hover:text-(--charis-accent-green) ${
-                  pathname === "/projects"
-                    ? "text-(--charis-accent-green)"
-                    : "text-(--charis-white)"
-                }`}
-                href="/projects"
-              >
-                <p>Projects</p>
-              </Link>
-              <Link
-                className={`hover:text-(--charis-accent-green) ${
-                  pathname === "/services"
-                    ? "text-(--charis-accent-green)"
-                    : "text-(--charis-white)"
-                }`}
-                href="/services"
-              >
-                <p>Services</p>
-              </Link>
-              <Link
-                className={`hover:text-(--charis-accent-green) ${
-                  pathname === "/contact"
-                    ? "text-(--charis-accent-green)"
-                    : "text-(--charis-white)"
-                }`}
-                href="/about"
-              >
-                <p>About</p>
-              </Link>
-              <Link
-                className={`hover:text-(--charis-accent-green) ${
-                  pathname === "/contact"
-                    ? "text-(--charis-accent-green)"
-                    : "text-(--charis-white)"
-                }`}
-                href="/contact"
-              >
-                <p>Contact</p>
-              </Link>
-            </ul>
-          </span>
-        </nav>
-      </header>
-    );
-  }
+            </nav>
+          </>
+        )}
+      </nav>
+    </header>
+  );
 }

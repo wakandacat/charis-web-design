@@ -13,7 +13,6 @@ export default function RotateFlower() {
     const [projectIndex, setProjectIndex] = useState(0); //project index --> to know which dot to highlight
 
     const turnLeft = () => {
-    console.log("turning left");
      let flower = document.getElementById("flower");
         if (flower){
             animate(scope.current, { rotate: currRotation - 60 }, { duration: 0.8 })
@@ -23,7 +22,6 @@ export default function RotateFlower() {
     }
 
     const turnRight = () => {
-    console.log("turning right");
     let flower = document.getElementById("flower");
         if (flower){
             animate(scope.current, { rotate: currRotation + 60 }, { duration: 0.8 })

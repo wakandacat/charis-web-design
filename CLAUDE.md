@@ -42,7 +42,3 @@ Will also handle the contact form later.
 
 lucide-react for standard icons. Custom inline SVGs for brand/social icons.
 
-## Screen size
-
-Custom ScreenSizeProvider using window.matchMedia, matches Tailwind's md breakpoint,
-consumed via useIsSmallScreen() hook.
