@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useIsSmallScreen } from "@/components/screen-size-provider";
 // using simplicons.org for the social icons as lucide-react does not have them
 import logoIcon from "@/app/icon.png";
 import charisText from "@/assets/charis-text-tagline.png";
@@ -10,16 +9,10 @@ import charisText from "@/assets/charis-text-tagline.png";
 export default function Footer() {
   const currYear = new Date().getFullYear();
 
-  //check the screen size
-  const isSmallScreen = useIsSmallScreen();
-
   return (
     <footer className="bg-background px-6 py-6 mx-auto w-full max-w-7xl">
       <span
-        className={`flex justify-between gap-6 ${
-          isSmallScreen ? "flex-col" : "flex-row"
-        }`}
-      >
+        className="flex justify-between gap-6 md:flex-row flex-col">
         <div className="flex flex-row items-center justify-start md:mr-auto">
           <Image
             src={logoIcon}
@@ -38,9 +31,7 @@ export default function Footer() {
         </div>
 
         <div
-          className={`grid gap-6 ${
-            isSmallScreen ? "grid-cols-2" : "grid-cols-3"
-          }`}
+          className="grid gap-6 grid-cols-2 md:grid-cols-3"
         >
           <div>
             <h5 className="text-l">Learn More</h5>
@@ -71,7 +62,7 @@ export default function Footer() {
             <h5 className="text-l">Connect With Us</h5>
             <div className="flex flex-row mt-2 gap-3">
               <a
-                className="w-6 shrink-0 fill-(--charis-white) hover:fill-(--charis-yellow) mr-2"
+                className="w-6 shrink-0 fill-(--charis-white) hover:fill-(--charis-accent-green) mr-2"
                 href="mailto:ellena.tzavelas@gmail.com"
                 target="_blank"
                 rel="noreferrer noopener"
@@ -86,7 +77,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                className="w-6 shrink-0 fill-(--charis-white) hover:fill-(--charis-yellow) mr-2"
+                className="w-6 shrink-0 fill-(--charis-white) hover:fill-(--charis-accent-green) mr-2"
                 href="https://www.instagram.com/chariswebdesign/"
                 target="_blank"
                 rel="noreferrer noopener"

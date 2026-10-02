@@ -10,8 +10,10 @@ import serviceBack from "@/assets/decorative/service-background.jpg";
 import ArrowButton from "@/components/arrow-button";
 import Link from "next/link";
 import ContactSection from "@/components/contact-section";
+import RotateFlower from "@/components/rotate-flower";
 
 export default function Home() {
+
   return (
     <>
       <PageSection
@@ -50,10 +52,10 @@ export default function Home() {
         backgroundImagePosition="center"
         backgroundOverlay
       >
-        <div className="flex flex-row items-center justify-between gap-4 text-white">
+        <div className="flex md:flex-row flex-col items-center justify-between gap-4 text-white">
           <h2>Services</h2>
           <div className="flex flex-col items-start justify-center gap-4">
-            <ArrowButton href="/services">
+            <ArrowButton href="/services" direction="right">
               <p>Learn more</p>
             </ArrowButton>
           </div>
@@ -176,7 +178,15 @@ export default function Home() {
         </div>
       </PageSection>
       <PageSection backgroundColour="accentgreen">
+        <div className="flex md:flex-row flex-col items-center justify-between gap-4 text-white">
           <h2>Showcase</h2>
+          <div className="flex flex-col items-start justify-center gap-4">
+            <ArrowButton href="/projects" direction="right">
+              <p>Learn more</p>
+            </ArrowButton>
+          </div>
+        </div>
+          <RotateFlower/>
       </PageSection>
       <ContactSection/>
     </>
