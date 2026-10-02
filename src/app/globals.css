@@ -27,6 +27,7 @@ body {
   background: var(--charis-green-2);
   color: var(--charis-light);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 main {
@@ -84,13 +85,20 @@ main {
 
 /*SEE ARROWBUTTON.TSX*/
 .button-style-2 {
-  border-radius: 0.25rem;
+  border-radius: 9999px;
   padding: 0.75rem 1.25rem;
   border: 2px solid var(--charis-white);
   cursor: pointer;
   font-family: var(--font-sans);
   letter-spacing: 3px;
   font-weight: 400;
+  z-index: 100;
+}
+
+.button-style-2:hover,
+.button-style-2:active {
+  background: var(--charis-accent-green);
+  transform: scale(1.01);
 }
 
 h5 {
@@ -107,6 +115,8 @@ h2 {
   font-size: 3rem;
   line-height: 1.25;
   font-weight: 600;
+  position: relative;
+  z-index: 100;
 }
 
 /*section subheaders*/
@@ -141,4 +151,31 @@ p {
   display: flex;
   flex-direction: column;
   gap: 50;
+}
+
+.highlighted-dot{
+  background-color: var(--charis-yellow)!important;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+  .button-style-2 {
+    padding: 0.25rem;
+  }
+
+  .text-stack {
+    gap: 25;
+  }
+
+  .larger-text {
+    font-size: 1.5rem;
+  }
 }

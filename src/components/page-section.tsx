@@ -69,7 +69,7 @@ export default function PageSection({
 }) {
   return (
     <section
-      className={`-mt-px relative ${backgroundColour ? backgroundColours[backgroundColour] : ""}`}
+      className={`-mt-px overflow-hidden relative ${backgroundColour ? backgroundColours[backgroundColour] : ""}`}
       style={
         matchImageHeight && backgroundImage
           ? { aspectRatio: `${backgroundImage.width} / ${backgroundImage.height}` }
