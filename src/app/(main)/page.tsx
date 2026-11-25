@@ -26,21 +26,23 @@ export default function Home() {
         {/* banner section with logo and tagline */}
         {/* min-h-[calc(100svh-var(--navbar-height)-20rem)] MAYBE ADD THIS BACK IF WE NEED LONGER HERO ON MOBILE*/}
         <div className="flex xl:min-h-[calc(100svh-var(--navbar-height)-8rem)] md:min-h-[calc(100svh-var(--navbar-height)-40rem)] items-center xl:justify-start justify-center relative text-white">
-          {/* width tracks the viewport in step with sizes, height follows the image's aspect ratio */}
-          <Image
+          {/* width tracks the viewport in step with sizes, height follows the image's aspect ratio */}       
+         <h1 className="hidden">Charis Web Design</h1>
+         <Image
             src={charisText}
             alt=""
             aria-hidden="true"
             sizes="(max-width: 768px) 80vw, (max-width: 1200px) 50vw, min(33vw, 500px)"
-            className="h-auto w-[80vw] md:w-[50vw] min-[1200px]:w-[33vw] max-w-125"
+            className="h-auto w-[80vw] md:w-[50vw] min-[1200px]:w-[33vw] max-w-125 pt-8 md:pt-0"
             placeholder="blur"
             preload
           />
         </div>
       </PageSection>
+
       <PageSection backgroundColour="accentgreen">
         <div className="text-stack items-center justify-center text-center text-(--charis-gray)">
-          <h1>Welcome to Charis Web Design</h1>
+          <h2>Welcome to Charis Web Design</h2>
           <p className="larger-text ">
             Driven by empathy, passion, and grace, we lay down strong roots for designs that keep the <strong>people</strong> in focus. Because we know that every great idea starts with a seed, and we're here to help it blossom.
           </p>

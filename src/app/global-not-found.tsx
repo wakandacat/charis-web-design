@@ -27,14 +27,18 @@ export default function GlobalNotFound() {
       className={`${cormorantGaramond.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <PageSection backgroundColour="light">
+        <PageSection backgroundColour="accentgreen">
           <div className="flex min-h-[calc(100svh-var(--navbar-height)-8rem)] flex-col justify-center">
             <h1 className="text-2xl font-bold text-(--charis-green)">
               Error 404: Page Not Found
             </h1>
-            <p className="text-lg text-(--charis-green)">
+            <p className="text-lg text-(--charis-green) mb-6">
               This page does not exist.
             </p>
+
+             <div className="text-stack text-(--charis-white) items-center md:items-start justify-center h-full">
+              <a href="/" className="button-style">Go home</a>
+            </div>
           </div>
         </PageSection>
       </body>

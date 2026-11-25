@@ -26,16 +26,14 @@ export default function PrivacyPage() {
         <h3>What information is collected</h3>
         <p>
           The only personal information that is collected is what you choose to provide.
-          If you sign up for updates, your email address is collected. If you use
-          the contact form, your name, email address and the message
-          you write are collected.
+          If you sign up for updates, your email address is collected.
         </p>
 
         <h3>How the information is used</h3>
         <p>
           Your email address is used to reply to any messages you have sent and, if you signed
           up for updates, to share occasional news about Charis Web Design. Your information is not sold
-          or shared with any other parties  .
+          or shared with any other parties.
         </p>
 
         <h3>Who handles your information</h3>
@@ -45,10 +43,10 @@ export default function PrivacyPage() {
           providers may process or store data outside Canada and are subject to the laws of those places.
         </p>
 
-        <h3>Your consent and unsubscribing</h3>
+        <h3>Withdrawing your consent</h3>
         <p>
           Updates are only sent to people who have signed up. You can withdraw
-          your consent and unsubscribe at any time by using the contact information below.
+          your consent at any time by using the contact information below.
         </p>
 
         <h3>How long your information is kept</h3>

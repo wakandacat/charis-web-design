@@ -87,8 +87,8 @@ export default function PageSection({
           fill
           sizes="100vw"
           className={`${backgroundImageFits[backgroundImageFit]} ${backgroundImagePositions[backgroundImagePosition]}`}
-          placeholder="blur"
           preload={preloadImage}
+          placeholder={preloadImage ? "empty" : "blur"}
           loading="eager"
         />
       )}

@@ -72,8 +72,8 @@ export default function Navbar() {
     }`;
 
   return (
-    <header className="bg-background">
-      <nav className="relative mx-auto flex h-(--navbar-height) w-full max-w-7xl items-center justify-between px-6 py-4" ref={navRef}>
+    <header className="bg-background fixed md:relative z-100 w-full">
+      <nav className=" mx-auto flex h-(--navbar-height) w-full max-w-7xl items-center justify-between px-6 py-4" ref={navRef}>
         <Link
           className="flex items-center"
           href="/"
@@ -85,7 +85,7 @@ export default function Navbar() {
             className="h-12 w-auto object-contain pr-2"
             priority
           />
-          {/* <h4 className="font-serif text-2xl">Charis Web Design</h4> */}
+          <h4 className="font-serif text-2xl hidden md:block">Charis Web Design</h4>
         </Link>
 
         {isDesktop ? (

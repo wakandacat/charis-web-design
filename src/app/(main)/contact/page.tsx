@@ -13,7 +13,7 @@ export default function ContactPage() {
         </div>
       </PageSection>
 
-      <PageSection backgroundColour="green">
+      <PageSection backgroundColour="green2">
         <div className="text-stack items-center justify-center text-start text-(--charis-white)">
           <h2>Our Forecast</h2>
           <div className="relative my-10 flex flex-col items-start justify-center gap-4 text-white">
@@ -22,7 +22,7 @@ export default function ContactPage() {
 
               <ul className="service-list">
                 <li>Monday to Friday: 6:00PM to 9:00PM EST</li>
-                <li>Saturday: 9:00PM to 9:00PM EST</li>
+                <li>Saturday: 9:00AM to 9:00PM EST</li>
                 <li>Sunday: 2:00PM to 9:00PM EST</li>
               </ul>
 
@@ -32,7 +32,7 @@ export default function ContactPage() {
         </div>
       </PageSection>
 
-      <PageSection backgroundColour="green2">
+      <PageSection backgroundColour="green">
         <div className="text-stack items-center justify-center text-center text-(--charis-white)">
           <h2>Let us know about your project</h2>
           <p className="larger-text">Reach out directly to ellena.tzavelas@gmail.com</p>
