@@ -72,7 +72,7 @@ export default function Navbar() {
     }`;
 
   return (
-    <header className="bg-background fixed md:relative z-100 w-full">
+    <header className="bg-background fixed md:relative z-1000 w-full">
       <nav className=" mx-auto flex h-(--navbar-height) w-full max-w-7xl items-center justify-between px-6 py-4" ref={navRef}>
         <Link
           className="flex items-center"
@@ -137,7 +137,7 @@ export default function Navbar() {
               aria-label="Main navigation"
               hidden={!isMenuOpen}
               ref={menuRef}
-              className="absolute z-200 left-0 top-full z-10 w-full border-t border-b border-(--charis-accent-green) bg-background p-4"
+              className="absolute z-1000 left-0 top-full z-10 w-full border-t border-b border-(--charis-accent-green) bg-background p-4"
             >
               <ul className="flex flex-col items-center justify-between gap-4 font-sans text-lg">
                 <li>
