@@ -85,7 +85,7 @@ export default function Navbar() {
             className="h-12 w-auto object-contain pr-2"
             priority
           />
-          <h4 className="font-serif text-2xl">Charis Web Design</h4>
+          {/* <h4 className="font-serif text-2xl">Charis Web Design</h4> */}
         </Link>
 
         {isDesktop ? (

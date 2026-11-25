@@ -49,6 +49,7 @@ export default function PageSection({
   matchImageHeight = false,
   preloadImage = false,
   children,
+  id,
 }: {
   //one of the palette colours from globals.css, omit for a transparent section
   backgroundColour?: BackgroundColour;
@@ -66,10 +67,12 @@ export default function PageSection({
   //lock the image height to the image's natural aspect ratio
   matchImageHeight?: boolean;
   children: React.ReactNode;
+  id?: string;
 }) {
   return (
     <section
       className={`-mt-px overflow-hidden relative ${backgroundColour ? backgroundColours[backgroundColour] : ""}`}
+      id={id}
       style={
         matchImageHeight && backgroundImage
           ? { aspectRatio: `${backgroundImage.width} / ${backgroundImage.height}` }
@@ -86,6 +89,7 @@ export default function PageSection({
           className={`${backgroundImageFits[backgroundImageFit]} ${backgroundImagePositions[backgroundImagePosition]}`}
           placeholder="blur"
           preload={preloadImage}
+          loading="eager"
         />
       )}
       {backgroundOverlay && (

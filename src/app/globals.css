@@ -101,6 +101,19 @@ main {
   transform: scale(1.01);
 }
 
+/*fake button style for non-button elements that need to look like buttons but are non clickable*/
+.fake-button-style {
+  background: var(--charis-green-2);
+  color: var(--charis-light);
+  font-family: var(--font-sans);
+  letter-spacing: 3px;
+  font-weight: 400;
+  border-radius: 0.25rem;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid var(--charis-white);
+  display: inline-block;
+}
+
 h5 {
   font-family: var(--font-sans);
   line-height: 2rem;
@@ -135,6 +148,14 @@ h3 {
   font-weight: 400;
 }
 
+h4 {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  line-height: 2rem;
+  letter-spacing: 3px;
+  font-weight: 400;
+}
+
 /*section text*/
 p {
   font-family: var(--font-sans);
@@ -142,6 +163,16 @@ p {
   line-height: 1.75rem;
   letter-spacing: 3px;
   font-weight: 250;
+}
+
+.service-list {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  letter-spacing: 3px;
+  font-weight: 250;
+  list-style-type: disc;
+  margin-left: 2rem;
 }
 
 /*larger section text*/
@@ -171,7 +202,7 @@ p {
   h3 {
     font-size: 1.75rem;
   }
-  p {
+  p, li {
     font-size: 1rem;
   }
   .button-style-2 {

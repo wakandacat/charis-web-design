@@ -50,10 +50,7 @@ export default function Footer() {
           <div>
             <h5 className="text-l">Other Info</h5>
             <ul className="flex flex-col gap-3 text-sm mt-2">
-              <Link className="link-style" href="/">
-                Terms of Service
-              </Link>
-              <Link className="link-style" href="/">
+              <Link className="link-style" href="/privacy">
                 Privacy Policy
               </Link>
             </ul>

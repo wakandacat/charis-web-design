@@ -5,7 +5,7 @@
 import homeBanner from "@/assets/decorative/home-banner.png";
 import charisText from "@/assets/charis-text-tagline.png";
 import PageSection from "@/components/page-section";
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
 import serviceBack from "@/assets/decorative/service-background.jpg";
 import ArrowButton from "@/components/arrow-button";
 import Link from "next/link";
@@ -40,7 +40,7 @@ export default function Home() {
       </PageSection>
       <PageSection backgroundColour="accentgreen">
         <div className="text-stack items-center justify-center text-center text-(--charis-gray)">
-          <h2>Welcome to Charis Web Design</h2>
+          <h1>Welcome to Charis Web Design</h1>
           <p className="larger-text ">
             Driven by empathy, passion, and grace, we lay down strong roots for designs that keep the <strong>people</strong> in focus. Because we know that every great idea starts with a seed, and we're here to help it blossom.
           </p>
@@ -48,9 +48,6 @@ export default function Home() {
       </PageSection>
       <PageSection
         backgroundColour="green2"
-        backgroundImage={serviceBack}
-        backgroundImagePosition="center"
-        backgroundOverlay
       >
         <div className="flex md:flex-row flex-col items-center justify-between gap-4 text-white">
           <h2>Services</h2>
@@ -63,8 +60,8 @@ export default function Home() {
         {/* one card per row on small screens, three across from md up —
             equal-sized tracks so every card matches the tallest one */}
         <div className="relative my-20 grid w-full grid-cols-1 grid-rows-3 gap-10 text-center lg:grid-cols-3 lg:grid-rows-1 lg:gap-20">
-          <Link href="/services" className="button-style group">
-            <div className="flex h-full w-full flex-col items-center justify-start gap-8 p-4">
+          <Link href="/services#website-creation-service" className="button-style group">
+            <div className="flex h-full w-full flex-col items-center justify-center gap-8 p-4">
               <svg
                 width="135"
                 height="103"
@@ -95,8 +92,8 @@ export default function Home() {
               </p>
             </div>
           </Link>
-          <Link href="/services" className="button-style group">
-            <div className="flex h-full w-full flex-col items-center justify-start gap-8 p-4">
+          <Link href="/services#website-redesign-service" className="button-style group">
+            <div className="flex h-full w-full flex-col items-center justify-center gap-8 p-4">
               <svg
                 width="136"
                 height="126"
@@ -127,12 +124,12 @@ export default function Home() {
 
               <h3>Website Redesign</h3>
               <p>
-                Refresh your <strong>existing</strong> website to suit a new direction.
+                Refresh your existing website to suit a new direction.
               </p>
             </div>
           </Link>
-          <Link href="/services" className="button-style group">
-            <div className="flex h-full w-full flex-col items-center justify-start gap-8 p-4">
+          <Link href="/services#ux-consulting-service" className="button-style group">
+            <div className="flex h-full w-full flex-col items-center justify-center gap-8 p-4">
               <svg
                 width="138"
                 height="109"
@@ -171,12 +168,31 @@ export default function Home() {
 
               <h3>UX Consulting</h3>
               <p>
-                Get expert advice on improving your website's user experience.
+                Get expert advice on improving your user experience.
               </p>
             </div>
           </Link>
         </div>
       </PageSection>
+
+      <PageSection  
+        backgroundColour="green2"
+        backgroundImage={serviceBack}
+        backgroundImagePosition="center"
+        backgroundOverlay>
+        <div className="flex md:flex-row flex-col items-center justify-center text-white">
+          <div className="fake-button-style max-w-[600px] text-center">
+            <div className="flex h-full w-full flex-col items-center justify-start gap-8 p-4">
+              <h4>
+                "Outstanding knowledge of website design and development, and consistently brings great ideas and suggestions to make the website look its best while keeping it simple, professional, and easy to navigate."
+              </h4>
+              <h5>Rob Falcon, Owner of Falcon Nutrifit</h5>
+            </div>
+          </div>
+        </div>
+      </PageSection>
+
+
       <PageSection backgroundColour="accentgreen">
         <div className="flex md:flex-row flex-col items-center justify-between gap-4 text-white">
           <h2>Showcase</h2>
@@ -188,6 +204,7 @@ export default function Home() {
         </div>
           <RotateFlower/>
       </PageSection>
+
       <ContactSection/>
     </>
   );
