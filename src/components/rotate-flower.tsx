@@ -2,33 +2,60 @@
 
 "use client";
 
+import { AnimatePresence } from "motion/react";
 import { motion, spring } from "motion/react";
 import ArrowButton from "./arrow-button";
 import { useAnimate } from "motion/react"
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import projectIMG1 from "@/assets/decorative/falcon-proj.png";
+import projectIMG2 from "@/assets/decorative/ahepa-proj.png";
+import projectIMG3 from "@/assets/decorative/delphi-proj.png";
+import Link from "next/link";
 
 export default function RotateFlower() {
     const [scope, animate] = useAnimate()
     const [currRotation, setCurrRotation] = useState(0); //rotation in degrees of the flower
     const [projectIndex, setProjectIndex] = useState(0); //project index --> to know which dot to highlight
+    const [direction, setDirection] = useState(1); // 1 = moving right, -1 = moving left
 
-    const turnLeft = () => {
-     let flower = document.getElementById("flower");
-        if (flower){
-            animate(scope.current, { rotate: currRotation - 60 }, { duration: 0.8 })
+    const projects = [
+        { title: "Falcon Nutrifit", image: projectIMG1, href: "/projects#falcon-project" },
+        { title: "AHEPA Ottawa", image: projectIMG2, href: "/projects#ahepa-project" },
+        { title: "Oracle of Delphi", image: projectIMG3, href: "/projects#delphi-project" },
+    ];
+
+    const project = projects[projectIndex];
+
+   const turnLeft = () => {
+        setDirection(-1);
+        let flower = document.getElementById("flower");
+        if (flower) {
+            animate(scope.current, { rotate: currRotation - 60 }, { duration: 0.8 });
         }
         setCurrRotation(currRotation - 60);
-        setProjectIndex((projectIndex - 1 + 3) % 3); //wrap around to last project if going left from first project
-    }
+        setProjectIndex((projectIndex - 1 + 3) % 3);
+    };
 
     const turnRight = () => {
-    let flower = document.getElementById("flower");
-        if (flower){
-            animate(scope.current, { rotate: currRotation + 60 }, { duration: 0.8 })
+        setDirection(1);
+        let flower = document.getElementById("flower");
+        if (flower) {
+            animate(scope.current, { rotate: currRotation + 60 }, { duration: 0.8 });
         }
         setCurrRotation(currRotation + 60);
-        setProjectIndex((projectIndex + 1) % 3); //wrap around to last project if going right from last project
-    }
+        setProjectIndex((projectIndex + 1) % 3);
+    };
+
+    const dotClick = (index: number) => {
+        setDirection(index > projectIndex ? 1 : -1);
+        if (projectIndex > index) {
+            turnLeft();
+        } else if (projectIndex < index) {
+            turnRight();
+        }
+        setProjectIndex(index);
+    };
 
     useEffect(() => {
         //update the highlighted dot based on the current project index
@@ -44,14 +71,21 @@ export default function RotateFlower() {
         }
     }, [projectIndex]);
 
-    const dotClick = (index: number) => {
-        if(projectIndex > index){
-            turnLeft();
-        } else if (projectIndex < index){
-            turnRight();
-        }
-        setProjectIndex(index);
-    }
+    //slideshow variants for the project images
+    const slideVariants = {
+        enter: (dir: number) => ({
+            x: dir > 0 ? 300 : -300,
+            opacity: 0,
+        }),
+        center: {
+            x: 0,
+            opacity: 1,
+        },
+        exit: (dir: number) => ({
+            x: dir > 0 ? -300 : 300,
+            opacity: 0,
+        }),
+        };
 
     return (
         <>
@@ -59,10 +93,40 @@ export default function RotateFlower() {
 
           {/* showcase images */}
           <div className="flex items-center justify-center gap-8 py-10 z-100 relative">
-            <svg id="showcase1" width="836" height="378" viewBox="0 0 836 378" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M702.127 377C686.593 377 674 364.419 674 348.899V109.101C674 93.5814 686.593 81 702.127 81H807.135C822.669 81 835.262 93.5814 835.262 109.101V348.899C835.262 364.419 822.669 377 807.135 377H702.127ZM807.135 347.025C812.313 347.025 816.51 345.348 816.51 343.278V114.722C816.51 112.652 812.313 110.975 807.135 110.975H702.127C696.949 110.975 692.751 112.652 692.751 114.722V343.278C692.751 345.348 696.949 347.025 702.127 347.025H807.135ZM769.632 362.013C771.703 362.013 773.382 360.335 773.382 358.266C773.382 356.196 771.703 354.519 769.632 354.519H739.63C737.559 354.519 735.879 356.196 735.879 358.266C735.879 360.335 737.559 362.013 739.63 362.013H769.632Z" fill="white"/>
-                <path d="M597.959 0C608.475 0.000769054 617 8.52511 617.001 19.041V375.057C617.001 376.161 616.106 377.057 615.001 377.057H2C0.895427 377.057 0 376.161 0 375.057V19.041C0.00107264 8.52516 8.52608 0.000847552 19.042 0H597.959ZM19.042 356.011C19.042 357.115 19.9374 358.011 21.042 358.011H595.959C597.064 358.011 597.959 357.115 597.959 356.011V333.353C597.959 332.248 597.064 331.353 595.959 331.353H21.042C19.9374 331.353 19.042 332.248 19.042 333.353V356.011ZM19.042 321.734C19.042 322.839 19.9374 323.734 21.042 323.734H595.959C597.064 323.734 597.959 322.839 597.959 321.734V21.041C597.959 19.9364 597.064 19.041 595.959 19.041H21.042C19.9374 19.041 19.042 19.9364 19.042 21.041V321.734Z" fill="white"/>
-            </svg>
+            
+            {/* images for each project --> TODO: replace this with dynamic images */}
+
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+                key={projectIndex}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                className="flex items-center justify-center py-10 z-100 relative"
+            >
+             <Link href={project.href} className="flex flex-col items-start gap-4">
+              <h4 className="text-white">{project.title}</h4>
+                <Image
+                src={project.image}
+                alt={`${project.title} project preview`}
+                width={1000}
+                height={1000}
+                sizes="(min-width: 768px) 700px, 100vw"
+                loading="eager"
+                />
+                {/* hidden images for preloading */}
+                <div className="hidden" aria-hidden="true">
+                {projects.map((p) => (
+                    <Image key={p.title} src={p.image} alt="" width={700} height={700} sizes="(min-width: 768px) 700px, 100vw" loading="eager" />
+                ))}
+                </div>
+            </Link>
+            </motion.div>
+        </AnimatePresence>
+
           </div>
 
           <div className="relative flex w-full items-center justify-center gap-8 z-100">
@@ -71,9 +135,9 @@ export default function RotateFlower() {
             </ArrowButton>
             {/* dots for each project --> TODO: replace this with dynamic dots */}
             <div className="flex space-x-4">
-              <button id="index1" className="button-style-2 w-6 h-6 md:w-10 md:h-10 p-2 bg-(--charis-accent-green) rounded-full highlighted-dot" onClick={() => dotClick(0)}></button>
-              <button id="index2" className="button-style-2 w-6 h-6 md:w-10 md:h-10 p-2 bg-(--charis-accent-green) rounded-full" onClick={() => dotClick(1)}></button>
-              <button id="index3" className="button-style-2 w-6 h-6 md:w-10 md:h-10 p-2 bg-(--charis-accent-green) rounded-full" onClick={() => dotClick(2)}></button>
+              <button id="index1" className="button-style-2 w-6 h-6 md:w-10 md:h-10 p-2 bg-(--charis-green) rounded-full highlighted-dot" onClick={() => dotClick(0)}></button>
+              <button id="index2" className="button-style-2 w-6 h-6 md:w-10 md:h-10 p-2 bg-(--charis-green) rounded-full" onClick={() => dotClick(1)}></button>
+              <button id="index3" className="button-style-2 w-6 h-6 md:w-10 md:h-10 p-2 bg-(--charis-green) rounded-full" onClick={() => dotClick(2)}></button>
             </div>
             <ArrowButton href="/" direction="right" onClick={turnRight}>
               <p></p>
